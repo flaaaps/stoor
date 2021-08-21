@@ -33,11 +33,15 @@
     flex-grow: 1;
 }
 
-.title a,
-.title span,
+.title,
+.title span {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
 .collectionName a,
 .collectionName span {
-    color: #fae10c;
+    color: var(--color-secondary);
     text-decoration: none;
 }
 
@@ -97,8 +101,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-    color: #fae10c;
-    border-color: #fae10c;
+    color: var(--color-secondary);
+    border-color: var(--color-secondary);
 }
 
 .card h2 {

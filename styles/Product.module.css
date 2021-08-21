@@ -31,18 +31,16 @@
 }
 
 .productButton {
-    border: none;
-    padding: 0.55rem 0rem;
+    padding: 0.55rem 0;
     font-size: 1rem;
-    /* background-color: #fae10c; */
     background-color: white;
-    border: 2px solid #fae10c;
-    color: #fae10c;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
     cursor: pointer;
 }
 
 .productCheckoutButton {
-    background-color: #fae10c;
+    background-color: var(--color-primary);
     color: white;
 }
 
@@ -54,7 +52,7 @@
     }
     .productDescription {
         margin-bottom: 1.5rem;
-        margin-right: 0rem;
+        margin-right: 0;
     }
     .buttonWrapper {
         margin-top: 2rem;
