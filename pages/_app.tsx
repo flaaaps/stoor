@@ -1,3 +1,4 @@
+import "../styles/variables.css"
 import "../styles/globals.css"
 import type { AppProps } from "next/app"
 import { NavigatorProvider } from "../context/NavigatorContext"
@@ -12,8 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
             <PayPalScriptProvider
                 options={{
-                    "client-id": "AXDOaIs2ZNMvzyUcsFzE8PSu6ZYWX7lsovJAgtDEyeN3cA20g_rL08d7OpZf_2cRXvm-KT9KoRg55i6W",
-                    currency: "EUR",
+                    "client-id":
+                        "AXDOaIs2ZNMvzyUcsFzE8PSu6ZYWX7lsovJAgtDEyeN3cA20g_rL08d7OpZf_2cRXvm-KT9KoRg55i6W",
+                    currency: "EUR"
                 }}
             >
                 <NavigatorProvider>

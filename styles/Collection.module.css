@@ -25,8 +25,8 @@
 .card:hover,
 .card:focus,
 .card:active {
-    color: #fae10c;
-    border-color: #fae10c;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
 .card h2 {
