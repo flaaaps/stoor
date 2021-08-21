@@ -1,0 +1,77 @@
+.contentWrapper {
+    display: flex;
+    width: 85%;
+}
+
+.collectionInformation {
+    width: 450px;
+    min-width: 300px;
+    margin-top: 1rem;
+}
+
+.card {
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    max-width: 350px;
+    width: 45%;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+    color: #fae10c;
+    border-color: #fae10c;
+}
+
+.card h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+}
+.card p {
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 1170px) {
+    .contentWrapper {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .card {
+        width: 100%;
+    }
+    .contentWrapper {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 815px) {
+    .contentWrapper {
+        flex-direction: column-reverse;
+    }
+    .collectionInformation {
+        width: 95%;
+        min-width: min-content;
+        margin: 0 auto;
+    }
+    .contentWrapper {
+        width: 95%;
+    }
+    .card {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 675px) {
+    .card {
+        width: 95%;
+    }
+}

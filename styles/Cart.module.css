@@ -1,0 +1,62 @@
+.title {
+    font-size: 2.3rem;
+    color: #fae10c;
+    text-align: center;
+}
+
+.link {
+    color: #fae10c;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin-top: 1rem;
+    margin: 0 auto;
+}
+
+.card {
+    margin: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    width: 100%;
+    display: flex;
+}
+
+.card img {
+    margin-right: 1rem !important;
+}
+
+.removeButton {
+    border: none;
+
+    /* padding: 0.45rem 1rem; */
+    font-size: 1rem;
+    /* background-color: #fae10c; */
+    background-color: white;
+    border: 2px solid white;
+    /* border: 2px solid #fa0c0c; */
+    color: #fa0c0c;
+    /* color: black; */
+    cursor: pointer;
+}
+
+.divider {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    max-width: 1000px;
+    width: 100%;
+}
