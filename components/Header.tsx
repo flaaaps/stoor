@@ -1,11 +1,13 @@
 import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faShoppingBasket } from "@fortawesome/free-solid-svg-icons"
 import Link from "next/link"
+import { FaShoppingCart } from "react-icons/fa"
+import usePathFill from "../hooks/usePathFill"
 
 interface Props {}
 
 const Header: React.FC<Props> = () => {
+    const ref = usePathFill<HTMLAnchorElement>()
+
     return (
         <div
             style={{
@@ -13,13 +15,13 @@ const Header: React.FC<Props> = () => {
                 justifyContent: "flex-end",
                 paddingTop: "15px",
                 paddingLeft: "30px",
-                paddingRight: "30px",
+                paddingRight: "30px"
             }}
         >
             <div style={{ width: "40px", height: "40px" }}>
                 <Link href="/cart" passHref>
-                    <a>
-                        <FontAwesomeIcon icon={faShoppingBasket} height="40" width="40" />
+                    <a ref={ref} style={{ color: "var(--color-primary)" }}>
+                        <FaShoppingCart size="32" />
                     </a>
                 </Link>
             </div>
