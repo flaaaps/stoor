@@ -1,11 +1,11 @@
-import { faTrashAlt } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
 import React, { useContext } from "react"
 import { CartItem } from "../../context/CartContext"
 import { NavigatorContext } from "../../context/NavigatorContext"
 import { formatPrice } from "../../lib/format"
 import styles from "../../styles/Cart.module.css"
+import { FaRegTrashAlt } from "react-icons/fa"
+import usePathFill from "../../hooks/usePathFill"
 
 interface Props {
     item: CartItem
@@ -14,11 +14,19 @@ interface Props {
 
 const Item: React.FC<Props> = ({ item, updateQuantity }) => {
     const { language, currencyCode } = useContext(NavigatorContext)
+    const ref = usePathFill<HTMLButtonElement>()
 
     return (
         <div className={styles.card} key={item.identifier}>
-            <Image src={item.imageUrl ? item.imageUrl : item.images[0]} width={200} height={200} alt={item.name} />
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
+            <Image
+                src={item.imageUrl ? item.imageUrl : item.images[0]}
+                width={200}
+                height={200}
+                alt={item.name}
+            />
+            <div
+                style={{ display: "flex", flexDirection: "column", justifyContent: "space-around" }}
+            >
                 <div>
                     <h1 style={{ margin: "0", marginBottom: "0.3rem" }}>{item.name}</h1>
                     <p style={{ margin: "0" }}>
@@ -46,21 +54,21 @@ const Item: React.FC<Props> = ({ item, updateQuantity }) => {
                     </ul>
                 </div>
                 <button
+                    ref={ref}
                     className={styles.removeButton}
                     style={{
                         display: "flex",
-                        alignItems: "center",
+                        alignItems: "center"
                     }}
                     onClick={() => updateQuantity?.(item.sku, 0)}
                 >
-                    <FontAwesomeIcon icon={faTrashAlt} width="13" />{" "}
-                    <span style={{ fontSize: "0.9rem", marginLeft: ".5rem" }}>Entfernen</span>
+                    <FaRegTrashAlt size="18px" color="#e54638" />{" "}
                 </button>
             </div>
             <div style={{ marginLeft: "auto" }}>
-                <h3 style={{ margin: "0.7rem 0px 0.3rem 0px" }}>
+                <p style={{ margin: "0.7rem 0px 0.3rem 0px", fontSize: "1.2rem", fontWeight: 500 }}>
                     {formatPrice(item.price, language?.locale, currencyCode || "USD")}
-                </h3>
+                </p>
             </div>
         </div>
     )
