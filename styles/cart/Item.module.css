@@ -1,0 +1,51 @@
+.detailWrapper {
+    width: 100%;
+}
+
+.removeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    background-color: #fff;
+    color: #e54638;
+    cursor: pointer;
+}
+
+.itemName {
+    margin: 0;
+    margin-bottom: 0.3rem;
+    overflow: hidden;
+    font-size: 1.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}
+
+.priceWrapper {
+    margin-left: auto;
+}
+
+.priceWrapper p {
+    margin: 0;
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.itemDetails p {
+    margin: 0;
+}
+
+.itemDetails ul li select {
+    margin-left: 0.5rem;
+}
