@@ -3,10 +3,11 @@ import React, { useContext } from "react"
 import { CartItem } from "../../context/CartContext"
 import { NavigatorContext } from "../../context/NavigatorContext"
 import { formatPrice } from "../../lib/format"
-import styles from "../../styles/Cart.module.css"
+import cartStyles from "../../styles/Cart.module.css"
 import { FaRegTrashAlt } from "react-icons/fa"
 import usePathFill from "../../hooks/usePathFill"
 
+import styles from "../../styles/cart/Item.module.css"
 interface Props {
     item: CartItem
     updateQuantity: ((itemSku: string, quantity: number) => void) | undefined
@@ -17,29 +18,30 @@ const Item: React.FC<Props> = ({ item, updateQuantity }) => {
     const ref = usePathFill<HTMLButtonElement>()
 
     return (
-        <div className={styles.card} key={item.identifier}>
+        <div className={cartStyles.card} key={item.identifier}>
             <Image
                 src={item.imageUrl ? item.imageUrl : item.images[0]}
                 width={200}
                 height={200}
                 alt={item.name}
             />
-            <div
-                style={{ display: "flex", flexDirection: "column", justifyContent: "space-around" }}
-            >
-                <div>
-                    <h1 style={{ margin: "0", marginBottom: "0.3rem" }}>{item.name}</h1>
-                    <p style={{ margin: "0" }}>
+            <div className={styles.detailWrapper}>
+                <div style={{ display: "flex", alignItems: "center", width: "100%" }}>
+                    <h1 className={styles.itemName}>{item.name}</h1>
+
+                    <div className={styles.priceWrapper}>
+                        <p>{formatPrice(item.price, language?.locale, currencyCode || "USD")}</p>
+                    </div>
+                </div>
+                <div className={styles.itemDetails}>
+                    <p>
                         {item.type.name} - {item.sex}
                     </p>
-                </div>
-                <div>
                     <ul>
                         <li>Größe: L</li>
                         <li>
                             Menge:
                             <select
-                                style={{ marginLeft: ".5rem" }}
                                 onChange={e => updateQuantity?.(item.sku, parseInt(e.target.value))}
                                 name="quantity"
                                 id="quantity"
@@ -56,19 +58,10 @@ const Item: React.FC<Props> = ({ item, updateQuantity }) => {
                 <button
                     ref={ref}
                     className={styles.removeButton}
-                    style={{
-                        display: "flex",
-                        alignItems: "center"
-                    }}
                     onClick={() => updateQuantity?.(item.sku, 0)}
                 >
                     <FaRegTrashAlt size="18px" color="#e54638" />{" "}
                 </button>
-            </div>
-            <div style={{ marginLeft: "auto" }}>
-                <p style={{ margin: "0.7rem 0px 0.3rem 0px", fontSize: "1.2rem", fontWeight: 500 }}>
-                    {formatPrice(item.price, language?.locale, currencyCode || "USD")}
-                </p>
             </div>
         </div>
     )
