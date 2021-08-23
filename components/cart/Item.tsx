@@ -47,7 +47,7 @@ const Item: React.FC<Props> = ({ item, updateQuantity }) => {
                                 id="quantity"
                             >
                                 {Array.from({ length: 10 }, (_, n) => n + 1).map(n => (
-                                    <option key={n} value={n} defaultChecked={item.quantity == n}>
+                                    <option key={n} value={n} selected={item.quantity == n}>
                                         {n}
                                     </option>
                                 ))}
