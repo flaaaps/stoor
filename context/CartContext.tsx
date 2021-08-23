@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { createContext, useCallback, useState } from "react"
 import { IProduct } from "../pages"
 
@@ -14,6 +15,22 @@ export const CartContext = createContext<Partial<ContextProps>>({})
 
 export const CartProvider: React.FC = ({ children }) => {
     const [items, setItems] = useState<CartItem[]>([])
+
+    useEffect(() => {
+        setItems(JSON.parse(readFromStorage("cart") ?? "[]"))
+    }, [])
+
+    useEffect(() => {
+        writeToStorage("cart", JSON.stringify(items))
+    }, [items])
+
+    const writeToStorage = (key: string, value: string) => {
+        localStorage.setItem(key, value)
+    }
+
+    const readFromStorage = (key: string) => {
+        return localStorage.getItem(key)
+    }
 
     const addItem = useCallback(
         (item: IProduct) => {
