@@ -17,6 +17,7 @@ export const CartProvider: React.FC = ({ children }) => {
     const [items, setItems] = useState<CartItem[]>([])
 
     useEffect(() => {
+        console.log("Reading items...")
         setItems(JSON.parse(readFromStorage("cart") ?? "[]"))
     }, [])
 
